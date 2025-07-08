@@ -2,11 +2,13 @@ import { test, expect } from '@playwright/test'
 import { NavigationPage } from '../page-objects/navigationPage';
 import { SearchFormPage } from '../page-objects/searchFormPage';
 import { CalendarPage } from '../page-objects/calendarPage'
+import { SearchResultsPage } from '../page-objects/searchResultsPage';
 
 test('Search hotels', async ({ page }) => {
 	const navigation = new NavigationPage(page)
 	const searchForm = new SearchFormPage(page)
 	const calendar = new CalendarPage(page);
+    const results = new SearchResultsPage(page)
 
 	await navigation.navigateToHomePage()
 
@@ -33,6 +35,10 @@ test('Search hotels', async ({ page }) => {
 
     await searchForm.clickSearchButton()
 
-    await navigation.handleAllPopups()
+    await expect(results.hotels.first()).toBeVisible()
+    const hotelsCount = await results.getHotelsCount()
+    console.log('Number of hotels: ' + hotelsCount);
+
+    // await navigation.handleAllPopups()
     
 });

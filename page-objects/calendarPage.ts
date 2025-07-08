@@ -24,8 +24,8 @@ export class CalendarPage {
 	}
 
 	/**
-	 * Wybiera zakres dat: checkin = dziś + fromOffset, checkout = dziś + toOffset
-	 * Przykład: selectDynamicDates(20, 27) – pobyt od za 20 dni do za 27 dni (7 dni)
+	 * Selects date range: checkin = today + fromOffset, checkout = today + toOffset
+	 * Example: selectDynamicDates(20, 27) – stay from 20 days to 27 days (7 days)
 	 */
 	async selectDynamicDates(fromOffset: number, toOffset: number) {
 		const today = new Date();
@@ -45,7 +45,7 @@ export class CalendarPage {
 	}
 
 	/**
-	 * Zwraca tekst wyświetlanych dat zameldowania i wymeldowania (np. "20 lipca 2025")
+	 * Returns the text of the displayed check-in and check-out dates (e.g. "July 20, 2025")
 	 */
 	async getDisplayedDates(): Promise<{
 		checkinText: string;
@@ -60,7 +60,7 @@ export class CalendarPage {
 	}
 
 	/**
-	 * Pomocnicza metoda do formatowania daty zgodnie z formatem Booking.com
+	 * Helping method to format the date according to the Booking.com format
 	 */
 	static formatDateForDisplay(date: Date): string {
 		return date.toLocaleDateString('en-US', {

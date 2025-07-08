@@ -27,7 +27,7 @@ export class SearchFormPage {
 		this.occupancyButton = page.locator(
 			'button[data-testid="occupancy-config"]'
 		);
-		// Dorośli
+		// Adults
 		this.adultsMinusButton = page
 			.locator('input#group_adults')
 			.locator('..')
@@ -42,7 +42,7 @@ export class SearchFormPage {
 			.locator('input#group_adults')
 			.locator('..')
 			.locator('span.e32aa465fd');
-		// Dzieci
+		// Childrens
 		this.childrenMinusButton = page
 			.locator('input#group_children')
 			.locator('..')
@@ -57,7 +57,7 @@ export class SearchFormPage {
 			.locator('input#group_children')
 			.locator('..')
 			.locator('span.e32aa465fd')
-		// Pokoje
+		// Rooms
 		this.roomsMinusButton = page
 			.locator('input#no_rooms')
 			.locator('..')
@@ -82,15 +82,15 @@ export class SearchFormPage {
 	}
 
 	/**
-	 * Ustawia liczbę dorosłych i pokoi.
-	 * @param adults liczba dorosłych
-	 * @param children liczba dzieci
-	 * @param rooms liczba pokoi
+	 * Seting number of Adults and childrens.
+	 * @param adults 
+	 * @param children 
+	 * @param rooms 
 	 */
 	async setGuests(adults: number, children: number, rooms: number) {
 		await this.occupancyButton.click();
 
-		// Ustaw dorosłych
+		// Set Adults
 		let currentAdults = parseInt(
 			(await this.adultsValue.textContent()) || '2',
 			10
@@ -104,7 +104,7 @@ export class SearchFormPage {
 			currentAdults++;
 		}
 
-		// Ustaw dzieci
+		// Set Childrens
 		let currentChildren = parseInt(
 			(await this.childrenValue.textContent()) || '0',
 			10
@@ -118,7 +118,7 @@ export class SearchFormPage {
 			currentChildren++;
 		}
 
-		// Ustaw pokoje
+		// Set Rooms
 		let currentRooms = parseInt(
 			(await this.roomsValue.textContent()) || '1',
 			10
