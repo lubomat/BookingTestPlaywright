@@ -28,4 +28,4 @@ This repository contains an automated test suite for Booking.com, developed usin
 
 ## Author
 
-Created as a demonstration of professional test automation practices for Booking.com.
+Mateusz Lubowiecki
