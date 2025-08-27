@@ -7,6 +7,7 @@ test('Setting the numbers of adults, children and rooms', async ({ page }) => {
 	const navigation = new NavigationPage(page);
 
 	await navigation.navigateToHomePage();
+	await page.waitForTimeout(2000);
     await navigation.handleAllPopups();
 	await occupancy.setGuests(3, 2, 2);
 
